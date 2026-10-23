@@ -4,7 +4,7 @@ Website portofolio pribadi yang saya buat di Kelas Industri UBIG
 Website ini tampil rapi di ponsel, tablet, dan laptop.
 
 ## Tampilan
-![Tampilan beranda portofolio] (img/tampilan-portofolio.png)
+![Tampilan beranda portofolio](img/tampilan-portofolio.png)
 
 ## Fitur
 - Halaman **Beranda** berisi profil, hobi, cita-cita, keahlian, dan jadwal belajar
@@ -16,6 +16,7 @@ Website ini tampil rapi di ponsel, tablet, dan laptop.
 - HTML5
 - CSS3 (Flexbox dan media query)
 - Git dan GitHub
+- VS Code dan Live Server
 
 ## Tautan
 - Website: menyusul setelah *deploy* ke Vercel
