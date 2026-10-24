@@ -19,5 +19,5 @@ Website ini tampil rapi di ponsel, tablet, dan laptop.
 - VS Code dan Live Server
 
 ## Tautan
-- Website: menyusul setelah *deploy* ke Vercel
+- Website: https://portofolio-rakha-gamma.vercel.app/
 - Dibuat oleh Rakha, SMKN 1 Pasuruan
