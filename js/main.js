@@ -20,11 +20,11 @@ if (daftarSkill) {
         daftarSkill.appendChild(item);
     });
     jumlahSkill.textContent = `Ada ${skills.length} keahlian yang sedang saya kembangkan.`;
-}
+};
 
 // 2. Tema gelap (semua halaman)
 const tombolTema = document.querySelector("#tombol-tema");
 
 tombolTema.addEventListener("click", () => {
     document.body.classList.toggle("gelap");
-})
+});
