@@ -7,6 +7,7 @@ const skills = [
     {nama: "CSS", level: "Menengah"},
     {nama: "Git dan GitHub", level: "Dasar"},
     {nama: "Desain porter dengan canva", level: "Mahir"},
+    {nama: "Mengetik cepat", level: "Dasar"},
 ];
 skills.push({nama: "JavaScript", level:  "Dasar"});
 
