@@ -136,16 +136,6 @@ main {
   font-size: 2rem;
 }
 
-.tombol {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  background-color: var(--warna-aksen);
-  color: #FFFFFF;
-  font-weight: 600;
-  text-decoration: none;
-}
-
 .kartu {
   background-color: var(--warna-kartu);
   padding: 1rem;
@@ -300,6 +290,12 @@ footer a {
   border: 2px solid var(--warna-garis);
   background-color: var(--warna-kartu);
   color: var(--warna-judul);
+}
+
+.tombol-filter.aktif {
+  border-color: var(--warna-utama);
+  background-color: var(--warna-utama);
+  color: #FFFFFF;
 }
 
 .label {

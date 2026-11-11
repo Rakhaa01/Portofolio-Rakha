@@ -105,23 +105,30 @@ function buatKartu(item) {
 function tampilkanProyek(daftar) {
   const semuaKartu = daftar.map((item) => buatKartu(item));
   daftarProyek.innerHTML = semuaKartu.join("");
-  jumlahProyek.textContent = `Menampilkan ${daftar.length} dari $
-{proyek.length} proyek`;
+  jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
 }
 
 function pasangFilter(idTombol, kategori) {
   const tombol = document.querySelector(idTombol);
   tombol.addEventListener("click", () => {
+    document.querySelectorAll(".tombol-filter").forEach((item) => {
+      item.classList.remove("aktif");
+    });
+    tombol.classList.add("aktif");
+
     if (kategori === "Semua") {
       tampilkanProyek(proyek);
     } else {
-      tampilkanProyek(proyek.filter((item) => item.kategori === 
-kategori));
+      tampilkanProyek(proyek.filter((item) => item.kategori === kategori));
     }
   });
 }
+
+
 if (daftarProyek) {
   tampilkanProyek(proyek);
   pasangFilter("#filter-semua", "Semua");
   pasangFilter("#filter-javascript", "JavaScript");
+  pasangFilter("#filter-css", "CSS");
+  pasangFilter("#filter-html", "HTML");
 }
