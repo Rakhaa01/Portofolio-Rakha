@@ -53,66 +53,53 @@ if (kotakPesan) {
 }
 
 // 4. Daftar proyek dan filter (halaman proyek)
-const proyek = [
-  {
-    judul: "Halaman Profil Pertama",
-    kategori: "HTML",
-    gambar: "img/proyek-profil.png",
-    alt: "Tangkapan layar halaman profil Andi Pratama",
-    deskripsi: "Halaman web pertama saya, dibuat dengan HTML dasar.",
-  },
-  {
-    judul: "Form Kontak",
-    kategori: "HTML",
-    gambar: "img/proyek-kontak.png",
-    alt: "Tangkapan layar form kontak berisi lima isian",
-    deskripsi: "Form dengan label dan validasi bawaan browser.",
-  },
-  {
-    judul: "Tabel Jadwal Belajar",
-    kategori: "HTML",
-    gambar: "img/proyek-jadwal.png",
-    alt: "Tangkapan layar tabel jadwal belajar mandiri",
-    deskripsi: "Jadwal belajar mingguan dengan thead dan tbody.",
-  },
-  {
-    judul: "Portofolio Responsif",
-    kategori: "CSS",
-    gambar: "img/proyek-responsif.png",
-    alt: "Tangkapan layar portofolio di ponsel dan laptop",
-    deskripsi: "Rapi di ponsel, tablet, dan laptop dengan Flexbox.",
-  },
-  {
-    judul: "Kalkulator Nilai Rapor",
-    kategori: "JavaScript",
-    gambar: "img/proyek-kalkulator.png",
-    alt: "Tangkapan layar hasil kalkulator nilai di Console",
-    deskripsi: "Rata-rata dan predikat nilai dengan fungsi JavaScript.",
-  },
-  {
-    judul: "Lima Soal Logika",
-    kategori: "JavaScript",
-    gambar: "img/proyek-logika.png",
-    alt: "Tangkapan layar hasil uji lima soal logika",
-    deskripsi: "Lima fungsi logika yang masing-masing diuji 3 masukan.",
-  },
-];
+let proyek = [];
 
 const daftarProyek = document.querySelector("#daftar-proyek");
 const jumlahProyek = document.querySelector("#jumlah-proyek");
+
+async function muatProyek() {
+    if (jumlahProyek) {
+        jumlahProyek.textContent = "Memuat proyek...";
+    }
+
+    try {
+        const response = await fetch("data/proyek.json");
+
+        if (!response.ok) {
+            throw new Error("Data proyek gagal dimuat");
+        }
+
+        proyek = await response.json();
+
+        tampilkanProyek(proyek);
+
+    } catch (error) {
+        console.error("Error:", error);
+
+        if (jumlahProyek) {
+            jumlahProyek.textContent = "Data proyek gagal dimuat.";
+        }
+    }
+}
+
 function buatKartu(item) {
   return `
-    <article class="kartu">
-      <span class="label">${item.kategori}</span>
-      <h3>${item.judul}</h3>
-      <img src="${item.gambar}" alt="${item.alt}" width="280">
-      <p>${item.deskripsi}</p>
-    </article>`;
+<article class="kartu">
+<span class="label">${item.kategori}</span>
+<h3>${item.judul}</h3>
+<img src="${item.gambar}" alt="${item.alt}" width="280">
+<p>${item.deskripsi}</p>
+</article>`;
 }
+
 function tampilkanProyek(daftar) {
+  if (!daftarProyek) return;
   const semuaKartu = daftar.map((item) => buatKartu(item));
   daftarProyek.innerHTML = semuaKartu.join("");
-  jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
+  if (jumlahProyek) {
+    jumlahProyek.textContent = `Menampilkan ${daftar.length} dari ${proyek.length} proyek`;
+  }
 }
 
 function pasangFilter(idTombol, kategori) {
@@ -133,7 +120,7 @@ function pasangFilter(idTombol, kategori) {
 
 
 if (daftarProyek) {
-  tampilkanProyek(proyek);
+  muatProyek();
   pasangFilter("#filter-semua", "Semua");
   pasangFilter("#filter-javascript", "JavaScript");
   pasangFilter("#filter-css", "CSS");
@@ -144,33 +131,46 @@ if (daftarProyek) {
 // 5. Repositori GitHub terbaru (halaman proyek)
 const username = "Rakhaa01";
 const alamatRepo = `https://api.github.com/users/${username}/repos`;
-const pilihan = "?sort=update&per_page=6";
+const pilihan = "?sort=updated&per_page=6";
 
 const daftarRepo = document.querySelector("#daftar-repo");
 const statusRepo = document.querySelector("#status-repo");
 
 async function ambilRepo() {
-  statusRepo.textContent = "Memuat...";
+    statusRepo.textContent = "Memuat...";
 
-  try {
-    const response = await fetch(alamatRepo + pilihan);
-    if (!response.ok) {
-      throw new Error(`Status ${response.status}`);
+    try {
+        const response = await fetch(alamatRepo + pilihan);
+
+        if (!response.ok) {
+            throw new Error(`Status ${response.status}`);
+        }
+
+        const repos = await response.json();
+
+        repos.forEach((repo) => {
+            const item = document.createElement("li");
+            const tautan = document.createElement("a");
+
+            tautan.href = repo.html_url;
+            tautan.target = "_blank";
+            tautan.textContent = repo.name;
+
+            item.appendChild(tautan);
+            daftarRepo.appendChild(item);
+        });
+
+        statusRepo.textContent =
+            `${repos.length} repositori yang terakhir diperbarui:`;
+
+    } catch (error) {
+        statusRepo.textContent =
+            "Maaf, daftar repositori gagal dimuat. Periksa username atau coba lagi nanti.";
+
+        console.error(error);
     }
-    const repos = await response.json();
+}
 
-    repos.forEach((repo) => {
-      const item = document.createElement("li");
-      const tautan = document.createElement("a");
-      tautan.href = repo.html_url;
-      tautan.target = "_blank";
-      tautan.textContent = repo.name;
-      item.appendChild(tautan);
-      daftarRepo.appendChild(item);
-    });
-    statusRepo.textContent = `${repos.length} repositori yang terakhir diperbarui:`;
-  } catch (error) {
-    statusRepo.textContent = "Maaf, daftar repositori gagal dimuat. Periksa username atau coba lagi nanti.";
-    console.error(error);
-  }
+if (daftarRepo) {
+    ambilRepo();
 }
