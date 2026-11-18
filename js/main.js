@@ -36,9 +36,9 @@ tombolTema.addEventListener("click", () => {
   document.body.classList.toggle("gelap");
 
   if (document.body.classList.contains("gelap")) {
-    tombolTema.textContent = "Mode Terang";
+    tombolTema.textContent = "Mode Terang☀️";
   } else {
-    tombolTema.textContent = "Mode Gelap";
+    tombolTema.textContent = "Mode Gelap🌙";
   }
 });
 

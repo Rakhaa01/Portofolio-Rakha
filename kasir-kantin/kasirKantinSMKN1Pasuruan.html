@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kasir Kantin SMKN 1 Pasuruan</title>
-  <link rel="icon" href="img/RkhMlgKtk.png">
+  <link rel="icon" href="../img/RkhMlgKtk.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
@@ -17,21 +17,22 @@
       <h1>Kasir Kantin SMKN 1 Pasuruan</h1>
            <nav class="menu-laptop">
         <ul>
-          <li><a href="/index.html">Beranda</a></li>
-          <li><a href="/proyek.html">Proyek</a></li>
-          <li><a href="/kontak.html">Kontak</a></li>
-          <li><a href="kasir-kantin/kasirKantinSMKN1Pasuruan.html">Kasir Kantin</a></li>
+          <li><a href="../index.html">Beranda</a></li>
+          <li><a href="../proyek.html">Proyek</a></li>
+          <li><a href="../kontak.html">Kontak</a></li>
+          <li><a href="kasirKantinSMKN1Pasuruan.html">Kasir Kantin</a></li>
         </ul>
       </nav>
+      <button type="button" id="tombol-tema" class="tombol-tema">Mode gelap</button>
       <!-- Tantangan: menu ponsel yang bisa dibuka-tutup -->
       <details class="menu-ponsel">
         <summary>Menu</summary>
         <nav>
           <ul>
-            <li><a href="/index.html">Beranda</a></li>
-            <li><a href="/proyek.html">Proyek</a></li>
-            <li><a href="/kontak.html">Kontak</a></li>
-            <li><a href="kasir-kantin/kasirKantinSMKN1Pasuruan.html">Kasir Kantin</a></li>
+            <li><a href="../index.html">Beranda</a></li>
+            <li><a href="../proyek.html">Proyek</a></li>
+            <li><a href="../kontak.html">Kontak</a></li>
+            <li><a href="kasirKantinSMKN1Pasuruan.html">Kasir Kantin</a></li>
           </ul>
         </nav>
     </div>
@@ -51,30 +52,20 @@
           Untuk melihat hasilnya, silahkan membuka console browser dengan menekan tombol Ctrl + Shift + J.
         </p>
       </section>
+      <section>
+        <h2>Menu Kantin</h2>
+        <p>Kumpulan menu di kantin SMK Negeri 1 Pasuruan.</p>
 
-      <div class="daftar-kartu">
-        <section class="kartu">
-          <h2>Makanan</h2>
-          <ul>
-            <li> Nasi Goreng Rp12.000</li>
-            <li> Mie Goreng Rp12.000</li>
-            <li> Ayam Geprek Rp12.000</li>
-            <li> Nasi Pecel Rp12.000</li>
-            <li> Mie Ayam Rp12.000</li>
-            <li> Bakso Rp12.000</li>
-          </ul>
-        </section>
-        <section class="kartu">
-          <h2>Minuman</h2>
-          <ul>
-            <li> Es Teh Rp4.000</li>
-            <li> Es Jeruk Rp4.000</li>
-            <li> Es Susu Rp4.000</li>
-            <li> Air Mineral Rp3.000</li>
-            <li> Es Kopi Rp5.000</li>
-          </ul>
-        </section>
-    </div>
+        <div class="filter">
+          <button type="button" class="tombol-filter aktif" id="filter-semua">Semua</button>
+          <button type="button" class="tombol-filter" id="filter-makanan">Makanan</button>
+          <button type="button" class="tombol-filter" id="filter-minuman">Minuman</button>
+        </div>
+
+        <p id="jumlah-menu"></p>
+
+        <div class="daftar-kartu" id="daftar-menu"></div>
+      </section>
   </main>
 
   <footer>
