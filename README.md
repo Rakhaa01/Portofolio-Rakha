@@ -4,7 +4,7 @@ Website portofolio pribadi yang saya buat di Kelas Industri UBIG
 Website ini tampil rapi di ponsel, tablet, dan laptop.
 
 ## Tampilan
-![Tampilan beranda portofolio](img/proyek-profil-baru.png)
+![Tampilan beranda portofolio V2](img/profil-baru.png)
 
 ## Fitur
 - Halaman **Beranda** berisi profil, hobi, cita-cita, keahlian, dan jadwal belajar
@@ -17,6 +17,11 @@ Website ini tampil rapi di ponsel, tablet, dan laptop.
 - CSS3 (Flexbox dan media query)
 - Git dan GitHub
 - VS Code dan Live Server
+
+## Skor Lighthouse (mobile)
+- Beranda : Performance 99, Accessibility 100, Best Practices 100, SEO 100
+- Proyek : Performance 87, Accessibility 100, Best Practices 100, SEO 100
+- Kontak : Performance 99, Accessibility 100, Best Practices 100, SEO 100
 
 ## Tautan
 - Website: https://portofolio-rakha-gamma.vercel.app/
