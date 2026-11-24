@@ -6,6 +6,9 @@ Website ini tampil rapi di ponsel, tablet, dan laptop.
 ## Tampilan
 ![Tampilan beranda portofolio V2](img/profil-baru.png)
 
+## Lighthouse Beranda 
+![Nilai Lighthouse terbaru beranda portofolio V2](img/Lighthouse-Beranda.png)
+
 ## Fitur
 - Halaman **Beranda** berisi profil, hobi, cita-cita, keahlian, dan jadwal belajar
 - Halaman **Proyek** berisi daftar proyek dalam bentuk kartu
@@ -17,6 +20,9 @@ Website ini tampil rapi di ponsel, tablet, dan laptop.
 - CSS3 (Flexbox dan media query)
 - Git dan GitHub
 - VS Code dan Live Server
+- JavaScript
+- JSON
+- GitHub API
 
 ## Skor Lighthouse (mobile)
 - Beranda : Performance 99, Accessibility 100, Best Practices 100, SEO 100
